@@ -41,7 +41,7 @@ export default class extends WorkerEntrypoint {
         outputFormat,
       })
 
-      return audioBlob
+      return audioBlob.arrayBuffer()
     } catch (error) {
       throw error instanceof Error ? error : new Error('TTS 生成失败')
     }
