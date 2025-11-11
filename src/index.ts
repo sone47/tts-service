@@ -3,6 +3,10 @@ import { edgeTTSService } from './utils/edgeTTS';
 import { TTSRequest, TTSVoicesRequest, ttsRequestSchema, ttsVoicesRequestSchema } from './schemas/tts';
 
 export default class extends WorkerEntrypoint {
+  async fetch() {
+    return new Response('ok')
+  }
+
   async getVoices(options: TTSVoicesRequest) {
     try {
       const validatedOptions = ttsVoicesRequestSchema.parse(options)
